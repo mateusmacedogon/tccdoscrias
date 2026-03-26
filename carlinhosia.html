@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salto Grande - SP | Cidade Encantadora do Interior Paulista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a6b3c;
+            --primary-dark: #0e4526;
+            --primary-light: #2d9e5a;
+            --accent: #e8a622;
+            --accent-dark: #c48a10;
+            --white: #ffffff;
+            --off-white: #f8f6f0;
+            --light-gray: #eee9df;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(26, 107, 60, 0.97);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .nav-logo i {
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        .nav-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3c 30%, #2d9e5a 60%, #1a6b3c 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(232, 166, 34, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 0%, transparent 70%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+            padding: 0 30px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 90px);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(22px, 3.5vw, 36px);
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+            max-width: 650px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 8px 30px rgba(232, 166, 34, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(232, 166, 34, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll a {
+            color: rgba(255,255,255,0.6);
+            font-size: 28px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-scroll a:hover {
+            color: var(--accent);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-12px); }
+            60% { transform: translateX(-50%) translateY(-6px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SECTIONS COMMON ========== */
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== ABOUT (SOBRE) ========== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image .img-main {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, #2d9e5a, #1a6b3c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5a 50%, #0e4526 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(232,166,34,0.2), transparent 60%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1), transparent 50%);
+        }
+
+        .img-placeholder i {
+            font-size: 60px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .img-placeholder span {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image .floating-card {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: var(--white);
+            padding: 24px 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 2;
+        }
+
+        .floating-card .icon-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .floating-card .info h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .floating-card .info p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-content .lead {
+            font-size: 17px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 35px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--off-white);
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ========== HISTÓRIA ========== */
+        .history {
+            background: var(--off-white);
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--accent);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ========== CULTURA ========== */
+        .culture {
+            background: var(--white);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .culture-card {
+            background: var(--off-white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            group: true;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .culture-card-img {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-card-img .img-placeholder {
+            border-radius: 0;
+        }
+
+        .culture-card-img .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .culture-card-img .overlay .tag {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .culture-card-body {
+            padding: 28px;
+        }
+
+        .culture-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .culture-card-body p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .culture-card-body .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .culture-card-body .read-more:hover {
+            gap: 12px;
+            color: var(--accent-dark);
+        }
+
+        /* ========== FESTAS ========== */
+        .festivals {
+            background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3c 50%, #0e4526 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .festivals::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 90%, rgba(232,166,34,0.1), transparent 50%),
+                radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 50%);
+        }
+
+        .festivals .section-label {
+            color: var(--accent);
+        }
+
+        .festivals .section-title {
+            color: var(--white);
+        }
+
+        .festivals .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .festival-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 36px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .festival-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary-light));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .festival-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .festival-card:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .festival-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .festival-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .festival-date {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .festival-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* ========== PONTOS TURÍSTICOS ========== */
+        .attractions {
+            background: var(--off-white);
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .attraction-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .attraction-img {
+            height: 200px;
+            position: relative;
+        }
+
+        .attraction-body {
+            padding: 24px;
+        }
+
+        .attraction-body h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .attraction-body p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .attraction-body .location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--primary);
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* ========== GASTRONOMIA ========== */
+        .gastronomy {
+            background: var(--white);
+        }
+
+        .gastronomy-flex {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gastronomy-content {
+            flex: 1;
+        }
+
+        .gastronomy-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .gastronomy-content p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .food-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .food-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 15px;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .food-list li:hover {
+            padding-left: 10px;
+            color: var(--primary);
+        }
+
+        .food-list li i {
+            color: var(--accent);
+            font-size: 18px;
+            width: 24px;
+        }
+
+        .gastronomy-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gastro-img {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .gastro-img:first-child {
+            grid-column: span 2;
+            height: 260px;
+        }
+
+        /* ========== DADOS DA CIDADE ========== */
+        .city-data {
+            background: linear-gradient(135deg, var(--off-white), var(--white));
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .data-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .data-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .data-card i {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .data-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .data-card p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ========== GALERIA ========== */
+        .gallery {
+            background: var(--dark);
+            padding: 100px 0;
+        }
+
+        .gallery .section-label {
+            color: var(--accent);
+        }
+
+        .gallery .section-title {
+            color: var(--white);
+        }
+
+        .gallery .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(2, 220px);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(2) { grid-column: span 2; }
+        .gallery-item:nth-child(3) { grid-column: span 2; }
+        .gallery-item:nth-child(4) { grid-column: span 2; }
+        .gallery-item:nth-child(5) { grid-column: span 2; }
+
+        .gallery-item .img-placeholder {
+            border-radius: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .img-placeholder {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ========== COMO CHEGAR ========== */
+        .location-section {
+            background: var(--white);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .location-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .location-info p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .info-list li i {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .info-list li div strong {
+            display: block;
+            font-size: 15px;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .info-list li div span {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand .footer-logo i {
+            font-size: 32px;
+            color: var(--accent);
+        }
+
+        .footer-brand .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-left: 6px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ========== BACK TO TOP ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(26, 107, 60, 0.4);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-image .img-main {
+                height: 400px;
+            }
+
+            .culture-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .attractions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .gallery-item {
+                grid-column: span 1 !important;
+                height: 200px;
+            }
+
+            .gallery-item:nth-child(1) {
+                height: 280px;
+                grid-column: span 2 !important;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gastronomy-flex {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(14, 69, 38, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                transition: var(--transition);
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                padding: 14px 30px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 22px;
+            }
+
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .festivals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .attractions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .gastronomy-images {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item:nth-child(1) {
+                grid-column: span 1 !important;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <i class="fas fa-water"></i>
+                <span>Salto Grande</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#history">História</a></li>
+                <li><a href="#culture">Cultura</a></li>
+                <li><a href="#festivals">Festas</a></li>
+                <li><a href="#attractions">Turismo</a></li>
+                <li><a href="#location">Localização</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                Estado de São Paulo — Interior Paulista
+            </div>
+            <h1>
+                <span class="highlight">Salto Grande</span>
+            </h1>
+            <p class="hero-subtitle">Natureza, Tradição e Hospitalidade</p>
+            <p class="hero-description">
+                Descubra o encanto desta cidade acolhedora às margens do Rio Paranapanema, onde a riqueza cultural, 
+                a beleza natural e as tradições do interior paulista se encontram.
+            </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    <i class="fas fa-compass"></i> Explorar a Cidade
+                </a>
+                <a href="#festivals" class="btn btn-outline">
+                    <i class="fas fa-calendar-star"></i> Festas e Eventos
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    <div class="img-main">
+                        <div class="img-placeholder">
+                            <i class="fas fa-panorama"></i>
+                            <span>Vista de Salto Grande</span>
+                        </div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info">
+                            <h4>1920</h4>
+                            <p>Ano de Fundação</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <h2>Bem-vindo a Salto Grande</h2>
+                    <p class="lead">
+                        Uma joia do interior paulista banhada pelas águas do Rio Paranapanema.
+                    </p>
+                    <p>
+                        Salto Grande é um município brasileiro localizado no interior do estado de São Paulo, 
+                        na região da Alta Paulista. A cidade recebe seu nome devido às grandes quedas d'água 
+                        (saltos) existentes no Rio Paranapanema, que banha a região e forma a divisa natural 
+                        com o estado do Paraná.
+                    </p>
+                    <p>
+                        Com uma população acolhedora e um ritmo de vida tranquilo típico das cidades do 
+                        interior, Salto Grande oferece qualidade de vida, contato com a natureza e uma 
+                        rica herança cultural que se manifesta em suas festas tradicionais, gastronomia 
+                        e no calor humano de seu povo.
+                    </p>
+                    <p>
+                        A economia local é fortemente baseada na agropecuária, com destaque para a 
+                        cana-de-açúcar, café, pecuária e, mais recentemente, o turismo rural e ecológico 
+                        que vem ganhando destaque na região.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="number" data-count="9000">0</span>
+                            <span class="label">Habitantes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">230</span>
+                            <span class="label">km² de Área</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">415</span>
+                            <span class="label">m Altitude</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTÓRIA -->
+    <section class="history" id="history">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Nossa História</span>
+                </div>
+                <h2 class="section-title">Uma Trajetória de Progresso</h2>
+                <p class="section-subtitle">
+                    Conheça os marcos que construíram a identidade de Salto Grande ao longo dos anos.
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1890</div>
+                        <h3>Primeiros Povoadores</h3>
+                        <p>
+                            Os primeiros desbravadores chegam à região atraídos pela fertilidade das terras 
+                            roxas e pela abundância de água do Rio Paranapanema. Pequenas fazendas de café 
+                            começam a surgir na área.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1920</div>
+                        <h3>Fundação do Distrito</h3>
+                        <p>
+                            Com o crescimento do povoado, impulsionado pela expansão cafeeira e pela chegada 
+                            da ferrovia, o distrito de Salto Grande é oficialmente criado, recebendo seu nome 
+                            em referência aos saltos do Rio Paranapanema.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1949</div>
+                        <h3>Emancipação Municipal</h3>
+                        <p>
+                            Salto Grande conquista sua emancipação político-administrativa, tornando-se 
+                            município autônomo. A cidade passa a contar com administração própria e 
+                            inicia um novo ciclo de desenvolvimento.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1958</div>
+                        <h3>Usina Hidrelétrica</h3>
+                        <p>
+                            A construção da Usina Hidrelétrica de Salto Grande no Rio Paranapanema 
+                            traz desenvolvimento econômico para a região, gerando empregos e 
+                            consolidando a importância estratégica do município.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">Hoje</div>
+                        <h3>Cidade em Crescimento</h3>
+                        <p>
+                            Atualmente, Salto Grande se destaca pela qualidade de vida, investimentos 
+                            em infraestrutura, valorização da cultura local e pelo potencial turístico 
+                            ligado às belezas do Rio Paranapanema.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CULTURA -->
+    <section class="culture" id="culture">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Cultura Local</span>
+                </div>
+                <h2 class="section-title">Tradições que nos Definem</h2>
+                <p class="section-subtitle">
+                    A cultura de Salto Grande é um reflexo vivo das raízes caipiras, da fé religiosa 
+                    e da miscigenação de povos que formaram o interior paulista.
+                </p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card animate-on-scroll">
+                    <div class="culture-card-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+                            <i class="fas fa-guitar"></i>
+                            <span>Música Caipira</span>
+                        </div>
+                        <div class="overlay">
+                            <span class="tag">Tradição</span>
+                        </div>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Música Sertaneja de Raiz</h3>
+                        <p>
+                            A viola caipira é a alma sonora de Salto Grande. A tradição da música sertaneja 
+                            de raiz é preservada por violeiros locais que mantêm vivas as modas de viola, 
+                            cururus e catiras que embalam as festas e encontros da comunidade.
+                        </p>
+                        <a href="#" class="read-more">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="culture-card animate-on-scroll">
+                    <div class="culture-card-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #4a0e8f, #7b2ff7);">
+                            <i class="fas fa-church"></i>
+                            <span>Religiosidade</span>
+                        </div>
+                        <div class="overlay">
+                            <span class="tag">Fé</span>
+                        </div>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Fé e Religiosidade Popular</h3>
+                        <p>
+                            As tradições religiosas são marcantes na vida do município. As novenas, 
+                            procissões, festas de padroeiro e celebrações litúrgicas reúnem a 
+                            comunidade em momentos de devoção e confraternização, fortalecendo 
+                            os laços sociais.
+                        </p>
+                        <a href="#" class="read-more">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="culture-card animate-on-scroll">
+                    <div class="culture-card-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #b8860b, #ffd700);">
+                            <i class="fas fa-hat-cowboy"></i>
+                            <span>Tradição Rural</span>
+                        </div>
+                        <div class="overlay">
+                            <span class="tag">Cultura</span>
+                        </div>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Cultura Caipira e Rural</h3>
+                        <p>
+                            O modo de vida rural está presente no DNA de Salto Grande. Das receitas 
+                            tradicionais passadas de geração em geração ao artesanato local, passando 
+                            pelas cavalgadas e rodeios, a cultura caipira é celebrada com orgulho pelos 
+                            moradores.
+                        </p>
+                        <a href="#" class="read-more">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FESTAS E EVENTOS -->
+    <section class="festivals" id="festivals">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Festas & Eventos</span>
+                </div>
+                <h2 class="section-title">Calendário de Celebrações</h2>
+                <p class="section-subtitle">
+                    Ao longo do ano, Salto Grande se enche de alegria com festas tradicionais 
+                    que celebram a fé, a cultura e a identidade do povo.
+                </p>
+            </div>
+            <div class="festivals-grid">
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Festa do Padroeiro</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Julho — Festa de São Benedito
+                    </div>
+                    <p>
+                        A maior festa religiosa da cidade homenageia São Benedito, o padroeiro de Salto Grande. 
+                        Durante dias, a cidade celebra com missas solenes, procissão pelas ruas, quermesse com 
+                        barracas de comidas típicas, leilões de gado, shows musicais e muita confraternização. 
+                        É o evento que mais reúne a comunidade e visitantes de toda a região.
+                    </p>
+                </div>
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Festa Junina</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Junho — Arraial de Salto Grande
+                    </div>
+                    <p>
+                        As tradicionais festas juninas tomam conta da cidade com fogueiras, quadrilhas, 
+                        danças típicas, comidas como pamonha, curau, quentão e pinhão. As escolas e 
+                        associações promovem arraiais animados que preservam as tradições caipiras 
+                        e encantam todas as gerações.
+                    </p>
+                </div>
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3>Rodeio e Cavalgada</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Setembro — Festa do Peão
+                    </div>
+                    <p>
+                        O rodeio de Salto Grande é um dos eventos mais aguardados do ano. Peões de toda 
+                        a região competem em montarias de touros e cavalos. A festa inclui cavalgada 
+                        pelas ruas da cidade, shows sertanejos, parque de diversões e praça de 
+                        alimentação com o melhor da culinária regional.
+                    </p>
+                </div>
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Aniversário da Cidade</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Dezembro — Comemorações Cívicas
+                    </div>
+                    <p>
+                        As comemorações do aniversário de emancipação do município incluem desfiles cívicos, 
+                        apresentações culturais, exposições de arte e história local, competições esportivas, 
+                        feiras de artesanato e gastronomia, além de shows gratuitos que celebram a identidade 
+                        e o orgulho de ser salto-grandense.
+                    </p>
+                </div>
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3>Festival de Pesca</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Outubro — Torneio de Pesca
+                    </div>
+                    <p>
+                        Aproveitando a riqueza do Rio Paranapanema, o Festival de Pesca atrai 
+                        pescadores esportivos de diversas cidades. O evento promove a pesca 
+                        sustentável, com competições de diversas categorias, premiações e 
+                        ações de conscientização ambiental e preservação do rio.
+                    </p>
+                </div>
+                <div class="festival-card animate-on-scroll">
+                    <div class="festival-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3>Semana Santa</h3>
+                    <div class="festival-date">
+                        <i class="fas fa-calendar"></i> Março/Abril — Celebrações Pascais
+                    </div>
+                    <p>
+                        A Semana Santa é vivida com intensa devoção. A Via Sacra encenada nas 
+                        ruas da cidade emociona moradores e visitantes, com participação de 
+                        dezenas de atores da comunidade. As celebrações incluem missas especiais, 
+                        procissões e momentos de reflexão e união.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PONTOS TURÍSTICOS -->
+    <section class="attractions" id="attractions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Pontos Turísticos</span>
+                </div>
+                <h2 class="section-title">O que Visitar</h2>
+                <p class="section-subtitle">
+                    Conheça os principais atrativos que fazem de Salto Grande um destino encantador no interior paulista.
+                </p>
+            </div>
+            <div class="attractions-grid">
+                <div class="attraction-card animate-on-scroll">
+                    <div class="attraction-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #1565C0, #42A5F5);">
+                            <i class="fas fa-water"></i>
+                            <span>Rio Paranapanema</span>
+                        </div>
+                    </div>
+                    <div class="attraction-body">
+                        <h3>Rio Paranapanema</h3>
+                        <p>
+                            O majestoso Rio Paranapanema é o principal cartão-postal da cidade. 
+                            Ideal para pesca esportiva, passeios de barco e contemplação da natureza.
+                        </p>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Divisa SP/PR
+                        </div>
+                    </div>
+                </div>
+                <div class="attraction-card animate-on-scroll">
+                    <div class="attraction-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #37474F, #78909C);">
+                            <i class="fas fa-bolt"></i>
+                            <span>Usina Hidrelétrica</span>
+                        </div>
+                    </div>
+                    <div class="attraction-body">
+                        <h3>Usina Hidrelétrica</h3>
+                        <p>
+                            A Usina de Salto Grande impressiona pela grandiosidade de sua estrutura 
+                            e pelo cenário deslumbrante formado pelo represamento do rio.
+                        </p>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Rio Paranapanema
+                        </div>
+                    </div>
+                </div>
+                <div class="attraction-card animate-on-scroll">
+                    <div class="attraction-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #4E342E, #8D6E63);">
+                            <i class="fas fa-church"></i>
+                            <span>Igreja Matriz</span>
+                        </div>
+                    </div>
+                    <div class="attraction-body">
+                        <h3>Igreja Matriz</h3>
+                        <p>
+                            A Igreja Matriz de São Benedito é o centro espiritual da cidade, 
+                            com arquitetura encantadora e importância histórica para o município.
+                        </p>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Centro
+                        </div>
+                    </div>
+                </div>
+                <div class="attraction-card animate-on-scroll">
+                    <div class="attraction-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #2E7D32, #66BB6A);">
+                            <i class="fas fa-tree"></i>
+                            <span>Praças e Parques</span>
+                        </div>
+                    </div>
+                    <div class="attraction-body">
+                        <h3>Praças e Áreas Verdes</h3>
+                        <p>
+                            As praças arborizadas do centro oferecem espaços de lazer e convivência, 
+                            com playgrounds, áreas de exercícios e eventos culturais ao ar livre.
+                        </p>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Área Urbana
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GASTRONOMIA -->
+    <section class="gastronomy" id="gastronomy">
+        <div class="container">
+            <div class="gastronomy-flex">
+                <div class="gastronomy-content animate-on-scroll">
+                    <div class="section-label" style="justify-content: flex-start;">
+                        <span>Gastronomia</span>
+                    </div>
+                    <h2>Sabores do Interior</h2>
+                    <p>
+                        A culinária de Salto Grande é um verdadeiro patrimônio cultural, herdada das tradições 
+                        caipiras e enriquecida pelas influências dos imigrantes que ajudaram a construir a cidade.
+                    </p>
+                    <p>
+                        Nos restaurantes, bares e festas da cidade, os visitantes podem saborear pratos 
+                        autênticos preparados com ingredientes frescos da região, receitas passadas de 
+                        geração em geração e o tempero especial da hospitalidade interiorana.
+                    </p>
+                    <ul class="food-list">
+                        <li><i class="fas fa-utensils"></i> Frango caipira com polenta cremosa</li>
+                        <li><i class="fas fa-utensils"></i> Leitão à pururuca assado na brasa</li>
+                        <li><i class="fas fa-utensils"></i> Pamonha e curau de milho verde</li>
+                        <li><i class="fas fa-utensils"></i> Peixes frescos do Rio Paranapanema</li>
+                        <li><i class="fas fa-utensils"></i> Doces caseiros e compotas tradicionais</li>
+                        <li><i class="fas fa-utensils"></i> Café coado com bolo de fubá</li>
+                    </ul>
+                </div>
+                <div class="gastronomy-images animate-on-scroll">
+                    <div class="gastro-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #BF360C, #FF7043);">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <span>Culinária Típica</span>
+                        </div>
+                    </div>
+                    <div class="gastro-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #E65100, #FFA726);">
+                            <i class="fas fa-bread-slice"></i>
+                            <span>Pães e Doces</span>
+                        </div>
+                    </div>
+                    <div class="gastro-img">
+                        <div class="img-placeholder" style="background: linear-gradient(135deg, #4E342E, #A1887F);">
+                            <i class="fas fa-mug-hot"></i>
+                            <span>Café Colonial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DADOS DA CIDADE -->
+    <section class="city-data">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Dados do Município</span>
+                </div>
+                <h2 class="section-title">Salto Grande em Números</h2>
+                <p class="section-subtitle">
+                    Informações essenciais sobre o município.
+                </p>
+            </div>
+            <div class="data-grid">
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>~9.000</h3>
+                    <p>Habitantes (estimativa)</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h3>230 km²</h3>
+                    <p>Área do Município</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-mountain"></i>
+                    <h3>415 m</h3>
+                    <p>Altitude Média</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>23°C</h3>
+                    <p>Temperatura Média</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-road"></i>
+                    <h3>480 km</h3>
+                    <p>Distância de São Paulo</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Agro</h3>
+                    <p>Base Econômica</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-map"></i>
+                    <h3>Marília</h3>
+                    <p>Mesorregião</p>
+                </div>
+                <div class="data-card animate-on-scroll">
+                    <i class="fas fa-phone"></i>
+                    <h3>(14)</h3>
+                    <p>DDD da Região</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>Galeria</span>
+                </div>
+                <h2 class="section-title">Imagens da Cidade</h2>
+                <p class="section-subtitle">
+                    Registros que capturam a essência e a beleza de Salto Grande.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="img-placeholder" style="background: linear-gradient(135deg, #1565C0, #0D47A1);">
+                        <i class="fas fa-water"></i>
+                        <span>Paranapanema</span>
+                    </div>
+                    <div class="gallery-overlay"><span>Rio Paranapanema ao Entardecer</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-placeholder" style="background: linear-gradient(135deg, #2E7D32, #1B5E20);">
+                        <i class="fas fa-tree"></i>
+                        <span>Natureza</span>
+                    </div>
+                    <div class="gallery-overlay"><span>Vegetação Nativa</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-placeholder" style="background: linear-gradient(135deg, #E65100, #BF360C);">
+                        <i class="fas fa-city"></i>
+                        <span>Centro</span>
+                    </div>
+                    <div class="gallery-overlay"><span>Centro da Cidade</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-placeholder" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">
+                        <i class="fas fa-church"></i>
+                        <span>Igreja</span>
+                    </div>
+                    <div class="gallery-overlay"><span>Igreja Matriz</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-placeholder" style="background: linear-gradient(135deg, #FF6F00, #F57F17);">
+                        <i class="fas fa-sun"></i>
+                        <span>Pôr do Sol</span>
+                    </div>
+                    <div class="gallery-overlay"><span>Pôr do Sol no Rio</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO CHEGAR -->
+    <section class="location-section" id="location">
+        <div class="container">
+            <div class="location-grid">
+                <div class="map-container animate-on-scroll">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29560.45!2d-49.99!3d-22.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0e8f0e8f0e8f%3A0x0!2sSalto%20Grande%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="location-info animate-on-scroll">
+                    <div class="section-label" style="justify-content: flex-start;">
+                        <span>Como Chegar</span>
+                    </div>
+                    <h2>Venha nos Visitar</h2>
+                    <p>
+                        Salto Grande está localizada na região oeste do estado de São Paulo, com fácil 
+                        acesso por rodovias estaduais. A cidade fica próxima a importantes centros urbanos 
+                        da região.
+                    </p>
+                    <ul class="info-list">
+                        <li>
+                            <i class="fas fa-car"></i>
+                            <div>
+                                <strong>De São Paulo (Capital)</strong>
+                                <span>Aproximadamente 480 km via rodovias SP-270 (Raposo Tavares) e SP-284</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-signs"></i>
+                            <div>
+                                <strong>De Marília</strong>
+                                <span>Cerca de 80 km pela SP-294 e estradas regionais</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-signs"></i>
+                            <div>
+                                <strong>De Ourinhos</strong>
+                                <span>Aproximadamente 50 km por rodovia estadual</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-plane"></i>
+                            <div>
+                                <strong>Aeroporto mais próximo</strong>
+                                <span>Aeroporto de Marília (80 km) ou Presidente Prudente (180 km)</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-sun"></i>
+                            <div>
+                                <strong>Clima</strong>
+                                <span>Tropical com verões quentes e chuvosos, invernos secos e amenos</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-water"></i>
+                        <span>Salto Grande</span>
+                    </div>
+                    <p>
+                        Uma cidade encantadora no coração do interior paulista, onde natureza, 
+                        tradição e hospitalidade se encontram às margens do Rio Paranapanema.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                        <li><a href="#history"><i class="fas fa-chevron-right"></i> História</a></li>
+                        <li><a href="#culture"><i class="fas fa-chevron-right"></i> Cultura</a></li>
+                        <li><a href="#festivals"><i class="fas fa-chevron-right"></i> Festas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#attractions"><i class="fas fa-chevron-right"></i> Turismo</a></li>
+                        <li><a href="#gastronomy"><i class="fas fa-chevron-right"></i> Gastronomia</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galeria</a></li>
+                        <li><a href="#location"><i class="fas fa-chevron-right"></i> Localização</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Salto Grande - SP</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (14) 3376-XXXX</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contato@saltogrande.sp.gov.br</a></li>
+                        <li><a href="#"><i class="fas fa-globe"></i> www.saltogrande.sp.gov.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Salto Grande - SP. Todos os direitos reservados.</p>
+                <p>Feito com <i class="fas fa-heart" style="color: #e74c3c;"></i> para Salto Grande</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ===== PARTICLES =====
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = particle.style.height = (Math.random() * 4 + 2) + 'px';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+
+            // Active nav link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+                const scrollY = window.scrollY;
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // ===== MOBILE MENU =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== BACK TO TOP =====
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== COUNTER ANIMATION =====
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    if (target) {
+                        let current = 0;
+                        const increment = target / 60;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target.toLocaleString('pt-BR');
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current).toLocaleString('pt-BR');
+                            }
+                        }, 25);
+                    }
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.number[data-count]').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // ===== SMOOTH SCROLL FOR ANCHORS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const position = target.offsetTop - offset;
+                    window.scrollTo({ top: position, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
