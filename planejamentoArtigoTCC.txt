@@ -1,8 +1,42 @@
 https://simpliza.com.br/precos-planos.php    
  AVALIAR FUNCOES DESTE SITE GERENCIADOR DE RESTAURANTE PARA PODER IMPLEMENTAR ALGUMA DAS FUNCOES
 
-LISTA DE ARTIGOS UTEIS PARA USAR COMO CITAÇAO NO TRABALHO fdkafafafdfa
+LISTA DE ARTIGOS UTEIS PARA USAR COMO CITAÇAO NO TRABALHO 
 1.
 2.
 3.
 4. 
+
+
+Técnica de fichamento 
+
+sobrenome, nome
+titulo
+ediçao
+editora/ revista
+cidade
+ano 
+resumo
+principais informaçoes
+
+respostas
+
+Veloso, Ana Paula 
+Aimi, Beatriz 
+Kawamura, Christyan 
+Gonçalves, Leonardo 
+Gonçalves, Natalie 
+
+VERDANIZZE Site de Redirecionamento Equipe Meraki 
+
+Não se Aplica
+
+?????
+
+Mongaguá 
+
+12/2022
+
+O presente projeto consiste na criação de um WebSite de Redirecionamento Vegano, onde é possível localizar todas as categorias de produtos veganos, portanto temos como objetivo garantir que pessoas possam adquirir produtos veganos, com uma maior facilidade, qualidade e menor preço, proporcionando as pessoas mais opções na hora de sua compra. Foi realizada uma pesquisa de campo para conhecer melhor o público-alvo, e assim focar na disponibilização de produtos do interesse vegano. A equipe Meraki tem a expectativa de tornar o site visível e executável a comunidade vegana, tornando-se um dos melhores sites de redirecionamento para o público. 
+
+WebSite de Redirecionamento Vegano, foca na disponibilização de produtos do interesse vegano.
