@@ -7,7 +7,10 @@ LISTA DE ARTIGOS UTEIS PARA USAR COMO CITAÇAO NO TRABALHO
 3.
 4. 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 23815f8d7f66e801a528339dda7afb6ade15e3bd
 Técnica de fichamento 
 
 sobrenome, nome
@@ -18,6 +21,7 @@ cidade
 ano 
 resumo
 principais informaçoes
+<<<<<<< HEAD
 
 respostas
 
@@ -40,3 +44,5 @@ Mongaguá
 O presente projeto consiste na criação de um WebSite de Redirecionamento Vegano, onde é possível localizar todas as categorias de produtos veganos, portanto temos como objetivo garantir que pessoas possam adquirir produtos veganos, com uma maior facilidade, qualidade e menor preço, proporcionando as pessoas mais opções na hora de sua compra. Foi realizada uma pesquisa de campo para conhecer melhor o público-alvo, e assim focar na disponibilização de produtos do interesse vegano. A equipe Meraki tem a expectativa de tornar o site visível e executável a comunidade vegana, tornando-se um dos melhores sites de redirecionamento para o público. 
 
 WebSite de Redirecionamento Vegano, foca na disponibilização de produtos do interesse vegano.
+=======
+>>>>>>> 23815f8d7f66e801a528339dda7afb6ade15e3bd
