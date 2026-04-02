@@ -1,48 +1,38 @@
 https://simpliza.com.br/precos-planos.php    
  AVALIAR FUNCOES DESTE SITE GERENCIADOR DE RESTAURANTE PARA PODER IMPLEMENTAR ALGUMA DAS FUNCOES
 
-LISTA DE ARTIGOS UTEIS PARA USAR COMO CITAÇAO NO TRABALHO 
-1.
-2.
-3.
-4. 
+Autores:
+Veloso, Ana Paula; Aimi, Beatriz; Kawamura, Christyan; Gonçalves, Leonardo; Gonçalves, Natalie
 
-<<<<<<< HEAD
+Título:
+VERDANIZZE: Site de Redirecionamento – Equipe Meraki
 
-=======
->>>>>>> 23815f8d7f66e801a528339dda7afb6ade15e3bd
-Técnica de fichamento 
+Edição:
+Não se aplica
 
-sobrenome, nome
-titulo
-ediçao
-editora/ revista
-cidade
-ano 
-resumo
-principais informaçoes
-<<<<<<< HEAD
+Editora / Revista:
+Não se aplica
 
-respostas
+Cidade:
+Mongaguá
 
-Veloso, Ana Paula 
-Aimi, Beatriz 
-Kawamura, Christyan 
-Gonçalves, Leonardo 
-Gonçalves, Natalie 
+Ano:
+2022
 
-VERDANIZZE Site de Redirecionamento Equipe Meraki 
+Resumo:
+O presente projeto consiste na criação de um website de redirecionamento vegano, no qual é possível localizar diversas categorias de produtos veganos. O objetivo é facilitar o acesso a esses produtos, oferecendo maior variedade, qualidade e preços mais acessíveis. Para isso, foi realizada uma pesquisa de campo a fim de compreender melhor o público-alvo e direcionar a oferta de produtos conforme seus interesses. A equipe Meraki busca tornar o site conhecido e funcional para a comunidade vegana, com a expectativa de se tornar uma das principais plataformas de redirecionamento desse segmento.
 
-Não se Aplica
+Principais informações:
 
-?????
+Criação de um site voltado ao público vegano
+Organização de produtos por categorias
+Facilidade na busca e compra de produtos
+Pesquisa de campo para entender o público
+Foco em variedade, qualidade e preço acessível
+Objetivo de crescimento e reconhecimento na comunidade vegana
 
-Mongaguá 
+Respostas (se precisar preencher):
 
-12/2022
-
-O presente projeto consiste na criação de um WebSite de Redirecionamento Vegano, onde é possível localizar todas as categorias de produtos veganos, portanto temos como objetivo garantir que pessoas possam adquirir produtos veganos, com uma maior facilidade, qualidade e menor preço, proporcionando as pessoas mais opções na hora de sua compra. Foi realizada uma pesquisa de campo para conhecer melhor o público-alvo, e assim focar na disponibilização de produtos do interesse vegano. A equipe Meraki tem a expectativa de tornar o site visível e executável a comunidade vegana, tornando-se um dos melhores sites de redirecionamento para o público. 
-
-WebSite de Redirecionamento Vegano, foca na disponibilização de produtos do interesse vegano.
-=======
->>>>>>> 23815f8d7f66e801a528339dda7afb6ade15e3bd
+O projeto busca resolver a dificuldade de encontrar produtos veganos
+Utiliza pesquisa de campo para direcionamento do conteúdo
+Tem foco em acessibilidade e praticidade para o usuário
